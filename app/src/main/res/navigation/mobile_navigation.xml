@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_transaction">
+
+    <fragment
+        android:id="@+id/nav_transaction"
+        android:name="edu.umkc.lvp4b.budgettracker.ui.transaction.TransactionFragment"
+        android:label="@string/menu_transaction"
+        tools:layout="@layout/fragment_transaction" >
+        <action
+            android:id="@+id/action_nav_transaction_to_add_transaction"
+            app:destination="@id/add_transaction" />
+        <action
+            android:id="@+id/action_nav_transaction_to_detail"
+            app:destination="@id/transaction_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/add_transaction"
+        android:name="edu.umkc.lvp4b.budgettracker.ui.transaction.AddTransactionFragment"
+        tools:layout="@layout/fragment_add_transaction" />
+    <fragment
+        android:id="@+id/transaction_detail"
+        android:name="edu.umkc.lvp4b.budgettracker.Detail"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_transaction_detail" >
+        <action
+            android:id="@+id/action_detail_to_addLineItemFragment"
+            app:destination="@id/add_line_item" />
+    </fragment>
+    <fragment
+        android:id="@+id/add_line_item"
+        android:name="edu.umkc.lvp4b.budgettracker.ui.transaction.AddLineItemFragment"
+        android:label="fragment_add_line_item"
+        tools:layout="@layout/fragment_add_line_item" />
+
+</navigation>
