@@ -32,12 +32,9 @@ public class AddTransactionFragment extends Fragment {
         final TransactionsViewModel transactionsViewModel =
                 ViewModelProviders.of(requireActivity()).get(TransactionsViewModel.class);
 
-        binding.add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                transactionsViewModel.addTransaction(binding.getTransaction());
-                Navigation.findNavController(view).navigateUp();
-            }
+        binding.add.setOnClickListener(view -> {
+            transactionsViewModel.addTransaction(binding.getTransaction());
+            Navigation.findNavController(view).navigateUp();
         });
 
         return binding.getRoot();

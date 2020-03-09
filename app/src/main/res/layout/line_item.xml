@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="transaction"
-            type="edu.umkc.lvp4b.budgettracker.ui.transaction.Transaction" />
+            name="lineItem"
+            type="edu.umkc.lvp4b.budgettracker.ui.transaction.LineItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,34 +14,23 @@
         android:background="#754CAF50">
 
         <TextView
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{transaction.dateAsString}"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:clickable="true"
-            android:text="@{transaction.name}"
+            android:text="@{lineItem.description}"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/amount"
-            app:layout_constraintStart_toEndOf="@id/date"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{transaction.amountAsString}"
+            android:text="@{lineItem.amountAsString}"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
