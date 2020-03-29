@@ -42,6 +42,13 @@
         <action
             android:id="@+id/action_edit_transaction_to_add_line_item"
             app:destination="@id/add_line_item" />
+        <action
+            android:id="@+id/action_edit_transaction_to_camera"
+            app:destination="@id/camera" />
     </fragment>
+    <fragment
+        android:id="@+id/camera"
+        android:name="edu.umkc.lvp4b.budgettracker.ui.transaction.CameraFragment"
+        android:label="Camera" />
 
 </navigation>

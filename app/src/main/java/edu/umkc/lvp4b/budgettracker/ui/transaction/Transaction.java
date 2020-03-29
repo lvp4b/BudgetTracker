@@ -1,5 +1,8 @@
 package edu.umkc.lvp4b.budgettracker.ui.transaction;
 
+import android.graphics.Bitmap;
+
+import androidx.annotation.Nullable;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.library.baseAdapters.BR;
@@ -14,6 +17,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import edu.umkc.lvp4b.budgettracker.data.ImageSerializer;
 import edu.umkc.lvp4b.budgettracker.data.LineItemEntity;
 import edu.umkc.lvp4b.budgettracker.data.TransactionAndItems;
 import edu.umkc.lvp4b.budgettracker.data.TransactionEntity;
@@ -25,6 +29,9 @@ public class Transaction extends BaseObservable {
     private double amount;
     private List<LineItem> lineItems;
 
+    @Nullable
+    private Bitmap image;
+
     public Transaction(){
         this.id = 0;
         this.date = Date.from(Instant.now());
@@ -33,12 +40,13 @@ public class Transaction extends BaseObservable {
         this.lineItems = new ArrayList<>();
     }
 
-    public Transaction(int id, Date date, String name, double amount, List<LineItem> lineItems) {
+    public Transaction(int id, Date date, String name, double amount, List<LineItem> lineItems, @Nullable Bitmap image) {
         this.id = id;
         this.date = date;
         this.name = name;
         this.amount = amount;
         this.lineItems = lineItems;
+        this.image = image;
     }
 
     public int getId() { return id; }
@@ -89,11 +97,20 @@ public class Transaction extends BaseObservable {
         }
     }
 
+    public Bitmap getImage() {
+        return this.image;
+    }
+
+    public void setImage(@Nullable Bitmap image){
+        this.image = image;
+    }
+
     public static Transaction fromEntity(TransactionAndItems e) {
         TransactionEntity entity = e.transaction;
         return new Transaction(entity.id, new Date(entity.date), entity.name, entity.amount,
                 e.lineItems.stream().sorted(Comparator.comparingInt(LineItemEntity::getOrder))
-                .map(LineItem::fromEntity).collect(Collectors.toList()));
+                .map(LineItem::fromEntity).collect(Collectors.toList()),
+                ImageSerializer.deserialize(entity.image));
     }
 
     public TransactionEntity toEntity(){
@@ -102,6 +119,7 @@ public class Transaction extends BaseObservable {
         entity.amount = amount;
         entity.date = date.getTime();
         entity.name = name;
+        entity.image = ImageSerializer.serialize(image);
         return entity;
     }
 

@@ -42,7 +42,8 @@ public class EditTransactionFragment extends Fragment {
 
             fragments = new Fragment[]{
                     new UpdateTransactionFragment(),
-                    new LineItemsFragment()
+                    new LineItemsFragment(),
+                    new ImageFragment()
             };
         }
 
@@ -59,7 +60,7 @@ public class EditTransactionFragment extends Fragment {
         @Nullable
         @Override
         public CharSequence getPageTitle(int position) {
-            return new String[]{"Transaction", "Line Items"}[position];
+            return new String[]{"Transaction", "Line Items", "Image"}[position];
         }
     }
 }

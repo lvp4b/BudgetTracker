@@ -1,5 +1,6 @@
 package edu.umkc.lvp4b.budgettracker.data;
 
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -20,4 +21,8 @@ public class TransactionEntity {
 
     @ColumnInfo(name = "amount")
     public double amount;
+
+    @ColumnInfo(name = "image")
+    @Nullable
+    public byte[] image;
 }
