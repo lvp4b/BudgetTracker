@@ -64,6 +64,7 @@ public class CameraFragment extends Fragment implements SurfaceHolder.Callback, 
 
             getView().requestLayout();
             camera.setPreviewDisplay(holder);
+            camera.setDisplayOrientation(90);
             camera.startPreview();
         } catch (IOException e) {
             throw new UncheckedIOException(e);
