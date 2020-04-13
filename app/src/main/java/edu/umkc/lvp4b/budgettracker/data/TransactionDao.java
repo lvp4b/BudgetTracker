@@ -17,7 +17,7 @@ public interface TransactionDao {
     List<LineItemEntity> getAllLineItems(int transactionId);
 
     @Insert
-    void insert(TransactionEntity transaction);
+    long insert(TransactionEntity transaction);
 
     @Update
     void update(TransactionEntity transaction);

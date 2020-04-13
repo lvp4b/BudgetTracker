@@ -128,14 +128,13 @@ public class TransactionsViewModel extends AndroidViewModel {
         @Override
         protected TransactionEntity doInBackground(Transaction... transactions) {
             TransactionEntity entity = transactions[0].toEntity();
-            database.transactionDao().insert(entity);
-            database.transactionDao().insert(transactions[0].toLineItemEntities());
+            transaction.setId((int)database.transactionDao().insert(entity));
+            database.transactionDao().insert(transaction.toLineItemEntities());
             return entity;
         }
 
         @Override
         protected void onPostExecute(TransactionEntity entity) {
-            transaction.setId(entity.id);
         }
     }
 }

@@ -26,6 +26,7 @@ import edu.umkc.lvp4b.budgettracker.R;
 import edu.umkc.lvp4b.budgettracker.data.AppDatabase;
 import edu.umkc.lvp4b.budgettracker.databinding.FragmentTransactionBinding;
 import edu.umkc.lvp4b.budgettracker.databinding.TransactionBinding;
+import edu.umkc.lvp4b.budgettracker.ui.categories.CategoriesViewModel;
 
 public class TransactionFragment extends Fragment {
 
@@ -48,6 +49,8 @@ public class TransactionFragment extends Fragment {
     public View onCreateView(@NonNull final LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         transactionsViewModel = ViewModelProviders.of(requireActivity()).get(TransactionsViewModel.class);
+
+        ViewModelProviders.of(requireActivity()).get(CategoriesViewModel.class);
 
         FragmentTransactionBinding binding = FragmentTransactionBinding.inflate(inflater);
         binding.setViewmodel(transactionsViewModel);

@@ -6,9 +6,11 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {TransactionEntity.class, LineItemEntity.class}, version = 4)
+@Database(entities = {TransactionEntity.class, LineItemEntity.class, CategoryEntity.class}, version = 9)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract TransactionDao transactionDao();
+
+    public abstract CategoryDao categoryDao();
 
     private static AppDatabase instance;
 

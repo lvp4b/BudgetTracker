@@ -3,6 +3,7 @@ package edu.umkc.lvp4b.budgettracker.data;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
 import androidx.room.Entity;
 
 @Entity(tableName = "lineItem", primaryKeys = {"transactionId", "order"})
@@ -18,6 +19,9 @@ public class LineItemEntity {
 
     @ColumnInfo(name = "amount")
     public double amount;
+
+    @ColumnInfo(name = "categoryId")
+    public int categoryId;
 
     public int getOrder() {return order;}
 }

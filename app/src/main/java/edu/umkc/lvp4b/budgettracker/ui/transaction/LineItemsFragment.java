@@ -62,13 +62,13 @@ public class LineItemsFragment extends Fragment {
 
             @Override
             public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-                holder.getLineItemBinding().setLineItem(transactionsViewModel.getSelectedTransaction().getLineItems().get(position));
+                holder.getLineItemBinding().setLineItem(transactionsViewModel.getSelectedTransaction().getLineItems().get(position + 1));
                 holder.getLineItemBinding().executePendingBindings();
             }
 
             @Override
             public int getItemCount() {
-                return transactionsViewModel.getSelectedTransaction().getLineItems().size();
+                return transactionsViewModel.getSelectedTransaction().getLineItems().size() - 1;
             }
         });
 

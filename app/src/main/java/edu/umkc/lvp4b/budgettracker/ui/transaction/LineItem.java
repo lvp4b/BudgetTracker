@@ -12,15 +12,18 @@ import edu.umkc.lvp4b.budgettracker.data.LineItemEntity;
 public class LineItem extends BaseObservable {
     private String description;
     private double amount;
+    private int categoryId;
 
     public LineItem(){
         description = "";
         amount = 0;
+        categoryId = 0;
     }
 
-    private LineItem(String description, double amount){
+    private LineItem(String description, double amount, int categoryId){
         this.description = description;
         this.amount = amount;
+        this.categoryId = categoryId;
     }
 
     @Bindable
@@ -34,6 +37,11 @@ public class LineItem extends BaseObservable {
 
     public double getAmount() {
         return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+        notifyPropertyChanged(BR.amountAsString);
     }
 
     @Bindable
@@ -50,7 +58,15 @@ public class LineItem extends BaseObservable {
         }
     }
 
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
     public static LineItem fromEntity(LineItemEntity entity){
-        return new LineItem(entity.description, entity.amount);
+        return new LineItem(entity.description, entity.amount, entity.categoryId);
     }
 }

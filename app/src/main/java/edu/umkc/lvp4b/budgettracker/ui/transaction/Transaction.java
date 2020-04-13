@@ -38,6 +38,7 @@ public class Transaction extends BaseObservable {
         this.name = "";
         this.amount = 0;
         this.lineItems = new ArrayList<>();
+        this.lineItems.add(new LineItem());
     }
 
     public Transaction(int id, Date date, String name, double amount, List<LineItem> lineItems, @Nullable Bitmap image) {
@@ -91,6 +92,10 @@ public class Transaction extends BaseObservable {
     public void setAmountAsString(String amount){
         try {
             this.amount = NumberFormat.getNumberInstance().parse(amount.replaceAll("\\.$", "")).doubleValue();
+            
+            this.getLineItems().get(0).setAmount(this.amount -
+                    this.getLineItems().stream().skip(1).mapToDouble(LineItem::getAmount).sum());
+
             notifyPropertyChanged(BR.amountAsString);
         } catch (ParseException e) {
             e.printStackTrace();

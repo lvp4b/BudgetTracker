@@ -3,8 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_transaction">
+    app:startDestination="@id/nav_transaction">
 
+    <fragment
+        android:id="@+id/edit_category"
+        android:name="edu.umkc.lvp4b.budgettracker.ui.categories.AddCategoryFragment"
+        android:label="Edit Category" />
     <fragment
         android:id="@+id/nav_transaction"
         android:name="edu.umkc.lvp4b.budgettracker.ui.transaction.TransactionFragment"
@@ -50,5 +54,20 @@
         android:id="@+id/camera"
         android:name="edu.umkc.lvp4b.budgettracker.ui.transaction.CameraFragment"
         android:label="Camera" />
+    <fragment
+        android:id="@+id/nav_category"
+        android:name="edu.umkc.lvp4b.budgettracker.ui.categories.CategoryFragment"
+        android:label="Categories" >
+        <action
+            android:id="@+id/action_nav_category_to_edit_category"
+            app:destination="@id/edit_category" />
+        <action
+            android:id="@+id/action_nav_category_to_add_category"
+            app:destination="@id/add_category" />
+    </fragment>
+    <fragment
+        android:id="@+id/add_category"
+        android:name="edu.umkc.lvp4b.budgettracker.ui.categories.AddCategoryFragment"
+        android:label="Add Category" />
 
 </navigation>

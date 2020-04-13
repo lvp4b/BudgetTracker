@@ -6,6 +6,9 @@
         <variable
             name="transaction"
             type="edu.umkc.lvp4b.budgettracker.ui.transaction.Transaction" />
+        <variable
+            name="categories"
+            type="edu.umkc.lvp4b.budgettracker.ui.categories.Category[]" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,33 +44,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="92dp"
             android:labelFor="@id/dateSelect"
             android:text="Date"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_transaction" />
+            app:layout_constraintTop_toTopOf="@+id/dateSelect"
+            app:layout_constraintBottom_toBottomOf="@+id/dateSelect" />
 
         <EditText
             android:id="@+id/dateSelect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:inputType="date"
             android:text="@={transaction.dateAsString}"
             app:layout_constraintStart_toEndOf="@+id/date"
-            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            app:layout_constraintTop_toBottomOf="@+id/category" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="20dp"
             android:labelFor="@id/nameInput"
             android:text="Name"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dateSelect" />
+            app:layout_constraintTop_toTopOf="@+id/nameInput"
+            app:layout_constraintBottom_toBottomOf="@+id/nameInput"  />
 
         <EditText
             android:id="@+id/nameInput"
@@ -104,29 +108,25 @@
             app:layout_constraintStart_toEndOf="@+id/lblAmount"
             app:layout_constraintTop_toBottomOf="@+id/nameInput" />
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="378dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="21dp"
-            android:layout_marginTop="26dp"
-            android:orientation="horizontal"
+        <TextView
+            android:id="@+id/lblCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:labelFor="@id/nameInput"
+            android:text="Category"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_transaction">
+            app:layout_constraintTop_toTopOf="@+id/category"
+            app:layout_constraintBottom_toBottomOf="@+id/category" />
 
-            <RadioButton
-                android:id="@+id/depositButton"
-                android:layout_width="182dp"
-                android:layout_height="wrap_content"
-                android:text="Deposit" />
-
-            <RadioButton
-                android:id="@+id/expenseButton"
-                android:layout_width="182dp"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="Expense" />
-        </RadioGroup>
+        <Spinner
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/lblCategory"
+            app:layout_constraintTop_toBottomOf="@+id/text_transaction" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
