@@ -1,9 +1,7 @@
 package edu.umkc.lvp4b.budgettracker;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 
-import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -18,12 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import edu.umkc.lvp4b.budgettracker.data.AppDatabase;
-import edu.umkc.lvp4b.budgettracker.ui.transaction.Transaction;
-import edu.umkc.lvp4b.budgettracker.ui.transaction.TransactionsViewModel;
 
 public class MainActivity extends AppCompatActivity {
 

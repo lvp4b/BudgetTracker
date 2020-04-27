@@ -6,6 +6,10 @@
     app:startDestination="@id/nav_transaction">
 
     <fragment
+        android:id="@+id/nav_plaid"
+        android:name="edu.umkc.lvp4b.budgettracker.ui.plaid.PlaidFragment"
+        android:label="Plaid" />
+    <fragment
         android:id="@+id/edit_category"
         android:name="edu.umkc.lvp4b.budgettracker.ui.categories.AddCategoryFragment"
         android:label="Edit Category" />

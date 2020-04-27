@@ -20,7 +20,7 @@ public class LineItem extends BaseObservable {
         categoryId = 0;
     }
 
-    private LineItem(String description, double amount, int categoryId){
+    public LineItem(String description, double amount, int categoryId){
         this.description = description;
         this.amount = amount;
         this.categoryId = categoryId;

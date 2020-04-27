@@ -5,6 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_plaid"
+            android:icon="@drawable/ic_menu_transaction"
+            android:title="Plaid" />
+        <item
             android:id="@+id/nav_transaction"
             android:icon="@drawable/ic_menu_transaction"
             android:title="@string/menu_transaction" />
