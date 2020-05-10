@@ -73,5 +73,9 @@
         android:id="@+id/add_category"
         android:name="edu.umkc.lvp4b.budgettracker.ui.categories.AddCategoryFragment"
         android:label="Add Category" />
+    <fragment
+        android:id="@+id/nav_category_chart"
+        android:name="edu.umkc.lvp4b.budgettracker.ui.charts.CategoryChartFragment"
+        android:label="Spending Chart" />
 
 </navigation>

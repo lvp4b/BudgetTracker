@@ -92,7 +92,7 @@ public class Transaction extends BaseObservable {
     public void setAmountAsString(String amount){
         try {
             this.amount = NumberFormat.getNumberInstance().parse(amount.replaceAll("\\.$", "")).doubleValue();
-            
+
             this.getLineItems().get(0).setAmount(this.amount -
                     this.getLineItems().stream().skip(1).mapToDouble(LineItem::getAmount).sum());
 
@@ -135,6 +135,7 @@ public class Transaction extends BaseObservable {
             LineItemEntity e = new LineItemEntity();
             e.amount = lineItem.getAmount();
             e.description = lineItem.getDescription();
+            e.categoryId = lineItem.getCategoryId();
             e.order = i;
             e.transactionId = id;
             lineItems.add(e);

@@ -63,6 +63,7 @@ public class TransactionsViewModel extends AndroidViewModel {
 
     public void updateTransaction(Transaction transaction){
         new UpdateTask(database).execute(transaction);
+        transactions.postValue(transactions.getValue());
     }
 
     private static class UpdateTask extends AsyncTask<Transaction, Void, Void> {

@@ -16,6 +16,10 @@
             android:id="@+id/nav_category"
             android:icon="@drawable/ic_menu_manage"
             android:title="Categories" />
+        <item
+            android:id="@+id/nav_category_chart"
+            android:icon="@android:drawable/presence_invisible"
+            android:title="Spending Chart" />
     </group>
 
 </menu>
